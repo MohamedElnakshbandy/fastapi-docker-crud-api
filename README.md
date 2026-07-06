@@ -214,13 +214,11 @@ Example:
 
 ```
 
-POSTGRES\_USER=mohamed
+POSTGRES_USER=your_username
+POSTGRES_PASSWORD=your_password
+POSTGRES_DB=your_database
 
-POSTGRES\_PASSWORD=password123
-
-POSTGRES\_DB=fastapi\_db
-
-DATABASE\_URL=postgresql://mohamed:password123@postgres:5432/fastapi\_db
+DATABASE_URL=postgresql://your_username:your_password@postgres:5432/your_database
 
 ```
 
