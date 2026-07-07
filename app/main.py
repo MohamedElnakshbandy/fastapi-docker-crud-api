@@ -4,7 +4,7 @@ from app import database, models
 from app.routers import items, system
 
 # Create database tables
-database.Base.metadata.create_all(bind=database.engine)
+
 
 app = FastAPI()
 

@@ -11,7 +11,10 @@ def get_item(db: Session, item_id: int):
 
 
 def create_item(db: Session, item: schemas.ItemCreate):
-    new_item = models.Item(name=item.name)
+    new_item = models.Item(
+        name=item.name,
+        description=item.description
+    )
     db.add(new_item)
     db.commit()
     db.refresh(new_item)
@@ -25,10 +28,12 @@ def update_item(db: Session, item_id: int, updated_item: schemas.ItemCreate):
         return None
 
     item.name = updated_item.name
+    item.description = updated_item.description
+
     db.commit()
     db.refresh(item)
-    return item
 
+    return item
 
 def delete_item(db: Session, item_id: int):
     item = get_item(db, item_id)
