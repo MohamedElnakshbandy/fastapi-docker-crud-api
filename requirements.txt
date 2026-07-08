@@ -4,3 +4,7 @@ sqlalchemy
 psycopg2-binary
 python-dotenv
 alembic
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+bcrypt==4.3.0
