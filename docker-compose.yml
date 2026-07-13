@@ -24,7 +24,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
+        ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -51,6 +55,21 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+
+  streamlit:
+    build: .
+    container_name: streamlit-app
+    command: >
+      streamlit run streamlit_app/app.py
+      --server.address=0.0.0.0
+      --server.port=8501
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      api:
+        condition: service_started
 
 volumes:
   postgres_data:
