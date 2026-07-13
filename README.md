@@ -71,41 +71,26 @@ A professional REST API built with \*\*FastAPI\*\*, \*\*PostgreSQL\*\*, \*\*SQLA
 ```text
 
 FastAPI-Docker/
-
 │
-
+├── alembic/
 ├── app/
-
-│   ├── config.py
-
+│   ├── routers/
+│   ├── auth.py
+│   ├── celery_app.py
 │   ├── crud.py
-
 │   ├── database.py
-
-│   ├── main.py
-
 │   ├── models.py
-
 │   ├── schemas.py
-
-│   └── routers/
-
-│       ├── items.py
-
-│       └── system.py
-
+│   ├── tasks.py
+│   └── main.py
 │
-
+├── streamlit_app/
+│   └── app.py
+│
 ├── Dockerfile
-
 ├── docker-compose.yml
-
 ├── requirements.txt
-
-├── .env.example
-
-├── .gitignore
-
+├── .env
 └── README.md
 
 ```
